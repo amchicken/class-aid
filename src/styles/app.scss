@@ -11,14 +11,68 @@ $font: "Kanit", sans-serif;
   font-family: $font;
 }
 
+a {
+  text-decoration: none;
+  color: black;
+}
+
+body {
+  position: relative;
+}
+
+::-webkit-scrollbar {
+  display: none;
+  scrollbar-width: none; /* Firefox */
+}
+
 .top-nav {
+  position: fixed;
+  height: 80px;
   display: flex;
   width: 95vw;
-  margin: auto;
+  margin-left: 2.5vw;
   justify-content: space-between;
   align-items: center;
-
+  // background-color: aquamarine;
   #logo {
     font-size: 2rem;
   }
 }
+
+.container {
+  display: flex;
+  .side-nav {
+    // background-color: bisque;
+    position: fixed;
+    width: 100px;
+    margin-top: 80px;
+    ul {
+      display: flex;
+      flex-direction: column;
+      padding: 1rem 0.5rem;
+      li {
+        padding: 1rem;
+      }
+    }
+  }
+
+  .content {
+    // background: linear-gradient(rgb(255, 255, 255), rgb(100, 100, 100));
+    margin-left: 100px;
+    margin-top: 80px;
+    padding: 2rem;
+    width: 100%;
+    overflow-y: scroll;
+    .test {
+      height: 200vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-content: flex-start;
+    }
+  }
+}
+
+@import "./profile";
+@import "./login";
+@import "./course";
