@@ -5,6 +5,7 @@ import { Redirect } from "react-router-dom";
 import Profile from "./components/Profile";
 import Login from "./components/Login";
 import Course from "./components/Course";
+import Signup from "./components/Signup";
 import axios from "axios";
 
 function App() {
@@ -24,6 +25,9 @@ function App() {
               token={token}
               setToken={setToken}
             />
+          </Route>
+          <Route path="/signup" exact>
+            <Signup />
           </Route>
           <Route path="/">
             <nav className="top-nav">
