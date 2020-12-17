@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import jwt from "jwt-decode";
 
@@ -28,7 +29,7 @@ const Login = ({ setIsAdmin, token, setToken, setName }) => {
 
   return (
     <div className="login-container">
-      <form className="warp">
+      <form className="wrap">
         <div>
           <h1>Login</h1>
         </div>
@@ -40,7 +41,13 @@ const Login = ({ setIsAdmin, token, setToken, setName }) => {
           <p>Password</p>
           <input ref={refPassword} type="password" />
         </div>
-        <button onClick={loginHandle}>Login</button>
+        <div className="login-button-group">
+          <button onClick={loginHandle}>Login</button>
+          <div>
+            <p>Not a member? </p>
+            <Link to="/register">Signup</Link>
+          </div>
+        </div>
       </form>
     </div>
   );
