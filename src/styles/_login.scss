@@ -20,7 +20,15 @@
     h1 {
       text-align: center;
     }
-
+    .error {
+      text-align: center;
+      border: 1px red solid;
+      background-color: red;
+      border-radius: 10px;
+      margin: auto;
+      color: white;
+      width: 80%;
+    }
     div {
       width: 100%;
       display: flex;

@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef ,useState} from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import jwt from "jwt-decode";
@@ -6,6 +6,7 @@ import jwt from "jwt-decode";
 const Login = ({ setIsAdmin, token, setToken, setName }) => {
   const refEmail = useRef();
   const refPassword = useRef();
+  const [loginError,setLoginError] = useState(null);
   const loginHandle = (e) => {
     e.preventDefault();
     axios
@@ -23,7 +24,8 @@ const Login = ({ setIsAdmin, token, setToken, setName }) => {
         setIsAdmin(decoded.isAdmin);
       })
       .catch((err) => {
-        console.log(err.response);
+        setLoginError(err.response.data);
+        console.log(err.response.data);
       });
   };
 
@@ -33,6 +35,9 @@ const Login = ({ setIsAdmin, token, setToken, setName }) => {
         <div>
           <h1>Login</h1>
         </div>
+        {loginError && (<div className="error">
+          {loginError}
+        </div>)}  
         <div>
           <p>Email</p>
           <input ref={refEmail} type="text" />
