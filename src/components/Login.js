@@ -24,8 +24,9 @@ const Login = ({ setIsAdmin, token, setToken, setName }) => {
         setIsAdmin(decoded.isAdmin);
       })
       .catch((err) => {
-        setLoginError(err.response.data);
-        console.log(err.response.data);
+        if(err.response.status !== 404){
+          setLoginError(err.response.data);
+        }else setLoginError("YOU ARE OFFLINE");
       });
   };
 
